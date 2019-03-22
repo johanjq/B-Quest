@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import EventListItem from './EventListItem';
-import EventDashboard from '../EventDashboard/EventDashboard'
 
 class EventList extends Component {
   render() {
