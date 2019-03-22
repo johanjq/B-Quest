@@ -12,7 +12,7 @@ class NavBar extends Component {
           </Menu.Item>
           <Menu.Item name="Events" />
           <Menu.Item>
-            <Button floated="right" positive inverted content="Create Event" />
+            <Button floated="right" positive inverted content="Treasure Hunt" />
           </Menu.Item>
           <Menu.Item position="right">
             <Button basic inverted content="Login" />
