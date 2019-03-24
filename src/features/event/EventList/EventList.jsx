@@ -8,7 +8,7 @@ class EventList extends Component {
 
     return (
       <div>
-        <h1>Event List</h1>
+        <h1>Treasure Hunt List</h1>
         {events.map((event) => (
             <EventListItem key={event.id} event={event}/>
         ))}

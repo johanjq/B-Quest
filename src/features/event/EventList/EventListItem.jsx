@@ -15,7 +15,7 @@ class EventListItem extends Component {
                 <Item.Content>
                   <Item.Header as="a">{event.title}</Item.Header>
                   <Item.Description>
-                    Hosted by <a>{event.hostedBy}</a>
+                    Big Lord <a>{event.hostedBy}</a>
                   </Item.Description>
                 </Item.Content>
               </Item>
@@ -35,6 +35,9 @@ class EventListItem extends Component {
             </List>
           </Segment>
           <Segment clearing>
+            <Segment>
+            <span>{event.bigHero}</span>
+            </Segment>
             <span>{event.description}</span>
             <Button
               as="a"
