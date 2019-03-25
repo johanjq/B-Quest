@@ -22,10 +22,27 @@ class EventForm extends Component {
       })
     }
   }
-
+  //Each time we click on this, we get access to the next props
+  //or the previous props
+  //So the form will update to whatever we're selecting
+  componentWillReceiveProps(nextProps){
+    //console.log('current', this.props.selectedEvent);
+    //console.log('next', nextProps.selectedEvent);
+    if(nextProps.selectedEvent !== this.props.selectedEvent){
+      this.setState({
+        event: nextProps.selectedEvent || emptyEvent
+      })
+    }
+  }
+  //When we click view on each TH,
+  //We're going to be able to edit the event and change its fields
   onFormSubmit = (evt) => {
     evt.preventDefault();
-    this.props.createEvent(this.state.event)
+    if(this.state.event.id){
+      this.props.updateEvent(this.state.event);
+    } else{
+      this.props.createEvent(this.state.event)
+    }
   }
 
   onInputChange = (evt) => {
