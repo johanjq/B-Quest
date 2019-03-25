@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import { Grid, Button } from "semantic-ui-react";
+import cuid from 'cuid';
 import EventList from "../EventList/EventList";
 import EventForm from "../EventForm/EventForm";
+
 
 const eventsDashboard = [
   {
     id: "1",
     title: "Take a selfie with a stranger in Temple Bar",
-    date: "2018-03-27T11:00:00+00:00",
+    date: "2018-03-27",
     category: "culture",
     bigHero: "B-Hero: Johan",
     description: "The B-Hero needs to Get into the Temple Bar Pub and take a selfie with a completely stranger! Proof of this quest needs to be uploaded to the Trasure Hunt",
     city: "London, UK",
     venue: "47-48 Temple Bar, Dublin, D02 N725",
     hostedBy: "Robert",
+    contribution: "Contribution: 20$",
     hostPhotoURL: "https://bit.ly/2HDmTHG",
     attendees: [
       {
@@ -27,12 +30,12 @@ const eventsDashboard = [
         photoURL: "https://bit.ly/2HRLmsb"
       },
       {
-        id: "a",
+        id: "c",
         name: "Mafer",
         photoURL: "https://bit.ly/2CKyhOf"
       },
       {
-        id: "b",
+        id: "e",
         name: "Ronald",
         photoURL: "https://bit.ly/2HRMsnN"
       }
@@ -41,7 +44,7 @@ const eventsDashboard = [
   {
     id: "2",
     title: "Trip to Punch and Judy Pub",
-    date: "2018-03-28T14:00:00+00:00",
+    date: "2018-03-28",
     category: "drinks",
     bigHero: "B-Hero: Juan",
     description:
@@ -49,6 +52,7 @@ const eventsDashboard = [
     city: "London, UK",
     venue: "Punch & Judy, Henrietta Street, London, UK",
     hostedBy: "Johan",
+    contribution: "Contribution: 20$",
     hostPhotoURL: "https://bit.ly/2HDrEkL",
     attendees: [
       {
@@ -57,26 +61,26 @@ const eventsDashboard = [
         photoURL: "https://bit.ly/2HRLmsb"
       },
       {
-        id: "a",
+        id: "c",
         name: "Mafer",
         photoURL: "https://bit.ly/2CKyhOf"
       },
       {
-        id: "b",
+        id: "e",
         name: "Ronald",
         photoURL: "https://bit.ly/2HRMsnN"
       },
       {
-        id: "b",
+        id: "d",
         name: "Robert",
         photoURL: "https://bit.ly/2HDmTHG"
       }
     ]
   },
   {
-    id: "1",
+    id: "3",
     title: "Do 20 push ups inside a McDonalds",
-    date: "2018-03-27T11:00:00+00:00",
+    date: "2018-03-27",
     category: "sports",
     bigHero: "B-Hero: Ronald",
     description:
@@ -84,6 +88,7 @@ const eventsDashboard = [
     city: "London, UK",
     venue: "McDonalds Dublin",
     hostedBy: "Juan",
+    contribution: "Contribution: 20$",
     hostPhotoURL: "https://bit.ly/2HRLmsb",
     attendees: [
       {
@@ -92,26 +97,26 @@ const eventsDashboard = [
         photoURL: "https://bit.ly/2HDrEkL"
       },
       {
-        id: "a",
+        id: "c",
         name: "Mafer",
         photoURL: "https://bit.ly/2CKyhOf"
       },
       {
-        id: "b",
+        id: "e",
         name: "Ronald",
         photoURL: "https://bit.ly/2HRMsnN"
       },
       {
-        id: "b",
+        id: "d",
         name: "Robert",
         photoURL: "https://bit.ly/2HDmTHG"
       }
     ]
   },
   {
-    id: "1",
+    id: "4",
     title: "Trip to Tower of London",
-    date: "2018-03-27T11:00:00+00:00",
+    date: "2018-03-27",
     category: "culture",
     bigHero: "B-Hero: Robert",
     description:
@@ -119,6 +124,7 @@ const eventsDashboard = [
     city: "London, UK",
     venue: "Tower of London, St Katharine's & Wapping, London",
     hostedBy: "Maria Fernanda",
+    contribution: "Contribution: 20$",
     hostPhotoURL: "https://bit.ly/2CKyhOf",
     attendees: [
       {
@@ -132,21 +138,21 @@ const eventsDashboard = [
         photoURL: "https://bit.ly/2HRLmsb"
       },
       {
-        id: "b",
+        id: "e",
         name: "Ronald",
         photoURL: "https://bit.ly/2HRMsnN"
       },
       {
-        id: "b",
+        id: "d",
         name: "Robert",
         photoURL: "https://bit.ly/2HDmTHG"
       }
     ]
   },
   {
-    id: "1",
+    id: "5",
     title: "Trip to Tower of London",
-    date: "2018-03-27T11:00:00+00:00",
+    date: "2018-03-27",
     category: "culture",
     bigHero: "B-Hero: Maria Fernanda",
     description:
@@ -154,6 +160,7 @@ const eventsDashboard = [
     city: "London, UK",
     venue: "Tower of London, St Katharine's & Wapping, London",
     hostedBy: "Ronald",
+    contribution: "Contribution: 20$",
     hostPhotoURL: "https://bit.ly/2HRMsnN",
     attendees: [
       {
@@ -167,12 +174,12 @@ const eventsDashboard = [
         photoURL: "https://bit.ly/2HRLmsb"
       },
       {
-        id: "a",
+        id: "c",
         name: "Mafer",
         photoURL: "https://bit.ly/2CKyhOf"
       },
       {
-        id: "b",
+        id: "d",
         name: "Robert",
         photoURL: "https://bit.ly/2HDmTHG"
       }
@@ -183,11 +190,13 @@ const eventsDashboard = [
 class EventDashboard extends Component {
   state = {
     events: eventsDashboard,
-    isOpen: false
+    isOpen: false,
+    selectedEvent: null
   };
 
   handleFormOpen = () => {
     this.setState({
+      selectedEvent: null,
       isOpen: true
     });
   };
@@ -198,11 +207,29 @@ class EventDashboard extends Component {
     });
   };
 
+  handleEditEvent = (eventToUpdate) => () => {
+    this.setState({
+      selectedEvent: eventToUpdate,
+      isOpen: true
+    })
+  }
+
+  handleCreateEvent = (newEvent) => {
+    newEvent.id = cuid()
+    newEvent.hostPhotoURL = '/assets/user.png';
+    const updatedEvents = [...this.state.events, newEvent]
+    this.setState({
+      events: updatedEvents,
+      isOpen: false
+    })
+  }
+
   render() {
+    const {selectedEvent} = this.state;
     return (
       <Grid>
         <Grid.Column width={10}>
-          <EventList events={this.state.events} />
+          <EventList onEventEdit={this.handleEditEvent} events={this.state.events} />
         </Grid.Column>
         <Grid.Column width={6}>
           <Button
@@ -210,7 +237,7 @@ class EventDashboard extends Component {
             positive
             content="Create Treasure Hunt"
           />
-          {this.state.isOpen && <EventForm handleCancel={this.handleCancel} />}
+          {this.state.isOpen && <EventForm selectedEvent={selectedEvent} createEvent={this.handleCreateEvent} handleCancel={this.handleCancel} />}
         </Grid.Column>
       </Grid>
     );
