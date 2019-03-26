@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container } from "semantic-ui-react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import EventDashboard from "../../features/event/EventDashboard/EventDashboard";
 import NavBar from "../../features/nav/navBar/NavBar";
 import EventForm from "../../features/event/EventForm/EventForm";
@@ -14,22 +14,34 @@ import HomePage from "../../features/home/HomePage";
 class App extends Component {
   render() {
     return (
+      //With this adition to the home page route in a different
+      //Div, we make sure to display the Home page without the NavBar
       <div>
-        <NavBar />
-        <Container className="main">
-        <Route exact path='/' component={HomePage}/>
-          <Route path='/events' component={EventDashboard}/>
-          <Route path='/event/:id' component={EventDashboard}/>
-          <Route path='/people' component={EventDetailedPage}/>
-          <Route path='/profile/:id' component={PeopleDashboard}/>
-          <Route path='/events/profile/:id' component={UserDetailedPage}/>
-          <Route path='/settings' component={SettingsDashboard}/>
-          <Route path='/createEvent' component={EventForm}/>
-        </Container>
+        <Switch>
+          <Route exact path='/' component={HomePage}/>
+        </Switch>
+
+        {/*A Route with forward Slash(/) plus anything else will result on a routing
+        looking for a match */}
+        <Route path="/(.+)" render={()=>(
+          <div>
+          <NavBar />
+          <Container className="main">
+            <Switch>
+              <Route path='/events' component={EventDashboard}/>
+              <Route path='/event/:id' component={EventDashboard}/>
+              <Route path='/people' component={EventDetailedPage}/>
+              <Route path='/profile/:id' component={PeopleDashboard}/>
+              <Route path='/events/profile/:id' component={UserDetailedPage}/>
+              <Route path='/settings' component={SettingsDashboard}/>
+              <Route path='/createEvent' component={EventForm}/>
+            </Switch>
+          </Container>
+          </div>      
+        )}/>  
       </div>
+
     );
   }
 }
-//This is a comment to test
-
 export default App;
