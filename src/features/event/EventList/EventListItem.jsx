@@ -15,7 +15,7 @@ class EventListItem extends Component {
                 <Item.Content>
                   <Item.Header as="a">{event.title}</Item.Header>
                   <Item.Description>
-                    <p>Big Lord: {event.hostedBy}</p>
+                    <p>B-Hero: {event.bigHero}</p>
                   </Item.Description>
                 </Item.Content>
               </Item>
@@ -37,7 +37,7 @@ class EventListItem extends Component {
           </Segment>
           <Segment clearing>
             <Segment>
-              <span>{event.bigHero}</span>
+              <span>Big Lord: {event.hostedBy}</span>
             </Segment>
             <Segment>
               <span>{event.contribution}</span>

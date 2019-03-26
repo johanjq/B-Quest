@@ -11,11 +11,11 @@ const eventsDashboard = [
     title: "Take a selfie with a stranger in Temple Bar",
     date: "2018-03-27",
     category: "culture",
-    bigHero: "B-Hero: Johan",
+    bigHero: "Robert",
     description: "The B-Hero needs to Get into the Temple Bar Pub and take a selfie with a completely stranger! Proof of this quest needs to be uploaded to the Trasure Hunt",
     city: "London, UK",
     venue: "47-48 Temple Bar, Dublin, D02 N725",
-    hostedBy: "Robert",
+    hostedBy: "Johan",
     contribution: "Contribution: 20$",
     hostPhotoURL: "https://bit.ly/2HDmTHG",
     attendees: [
@@ -46,12 +46,12 @@ const eventsDashboard = [
     title: "Trip to Punch and Judy Pub",
     date: "2018-03-28",
     category: "drinks",
-    bigHero: "B-Hero: Juan",
+    bigHero: "Johan",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
     city: "London, UK",
     venue: "Punch & Judy, Henrietta Street, London, UK",
-    hostedBy: "Johan",
+    hostedBy: "Juan",
     contribution: "Contribution: 20$",
     hostPhotoURL: "https://bit.ly/2HDrEkL",
     attendees: [
@@ -82,12 +82,12 @@ const eventsDashboard = [
     title: "Do 20 push ups inside a McDonalds",
     date: "2018-03-27",
     category: "sports",
-    bigHero: "B-Hero: Ronald",
+    bigHero: "Juan",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
     city: "London, UK",
     venue: "McDonalds Dublin",
-    hostedBy: "Juan",
+    hostedBy: "Ronald",
     contribution: "Contribution: 20$",
     hostPhotoURL: "https://bit.ly/2HRLmsb",
     attendees: [
@@ -108,7 +108,7 @@ const eventsDashboard = [
       },
       {
         id: "d",
-        name: "Robert",
+        name: "Maria",
         photoURL: "https://bit.ly/2HDmTHG"
       }
     ]
@@ -118,12 +118,12 @@ const eventsDashboard = [
     title: "Trip to Tower of London",
     date: "2018-03-27",
     category: "culture",
-    bigHero: "B-Hero: Robert",
+    bigHero: "Maria Fernanda",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
     city: "London, UK",
     venue: "Tower of London, St Katharine's & Wapping, London",
-    hostedBy: "Maria Fernanda",
+    hostedBy: "Juan",
     contribution: "Contribution: 20$",
     hostPhotoURL: "https://bit.ly/2CKyhOf",
     attendees: [
@@ -154,12 +154,12 @@ const eventsDashboard = [
     title: "Get a free hug in the shopping center",
     date: "2018-03-27",
     category: "culture",
-    bigHero: "B-Hero: Maria Fernanda",
+    bigHero: "Ronald",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
     city: "London, UK",
     venue: "Tower of London, St Katharine's & Wapping, London",
-    hostedBy: "Ronald",
+    hostedBy: "Ailem",
     contribution: "Contribution: 20$",
     hostPhotoURL: "https://bit.ly/2HRMsnN",
     attendees: [
@@ -254,8 +254,9 @@ class EventDashboard extends Component {
         <Grid.Column width={6}>
           <Button
             onClick={this.handleFormOpen}
-            positive
             content="Create Treasure Hunt"
+            style={{ background: "#008577", color: "white" }}
+            floated="right"
           />
           {this.state.isOpen && <EventForm updateEvent={this.handleUpdateEvent} selectedEvent={selectedEvent} createEvent={this.handleCreateEvent} handleCancel={this.handleCancel} />}
         </Grid.Column>

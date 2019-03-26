@@ -57,7 +57,7 @@ class EventForm extends Component {
     const {handleCancel} = this.props;
     const {event} = this.state;
     return (
-            <Segment>
+            <Segment style={{margin: "50px 0px"}}>
               <Form onSubmit={this.onFormSubmit}>
                 <Form.Field>
                   <label>Treasure Hunt Title</label>
@@ -83,7 +83,7 @@ class EventForm extends Component {
                   <label>Contribution: </label>
                   <input name='contribution' onChange={this.onInputChange} value={event.contribution} placeholder="How much will you contribute?" />
                 </Form.Field>
-                <Button positive type="submit">
+                <Button positive style={{ background: "#008577", color: "white" }} type="submit">
                   Submit
                 </Button>
                 <Button onClick={handleCancel} type="button">Cancel</Button>
