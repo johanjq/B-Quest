@@ -9,6 +9,7 @@ import UserDetailedPage from "../../features/user/UserDetailed/UserDetailedPage"
 import PeopleDashboard from "../../features/user/PeopleDashboard/PeopleDashboard";
 import EventDetailedPage from "../../features/event/EventDetailed/EventDetailedPage";
 import HomePage from "../../features/home/HomePage";
+import DescriptionPage from "../../features/home/DescriptionPage";
 
 
 class App extends Component {
@@ -18,7 +19,7 @@ class App extends Component {
       //Div, we make sure to display the Home page without the NavBar
       <div>
         <Switch>
-          <Route exact path='/' component={HomePage}/>
+          <Route exact path='/' component={DescriptionPage}/>
         </Switch>
 
         {/*A Route with forward Slash(/) plus anything else will result on a routing

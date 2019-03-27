@@ -43,6 +43,7 @@ class EventListItem extends Component {
               <span>{event.contribution}</span>
             </Segment>
             <span>{event.description}</span>
+            <div style={{margin: "10px 0px"}}>
             <Button
               onClick={deleteEvent(event.id)}
               as="a"
@@ -53,10 +54,11 @@ class EventListItem extends Component {
             <Button
               onClick={onEventOpen(event)}
               as="a"
-              style={{ background: "#008577", color: "white" }}
+              style={{ background: "#008577", color: "white"}}
               floated="right"
               content="View"
             />
+            </div>
           </Segment>
         </Segment.Group>
       </div>

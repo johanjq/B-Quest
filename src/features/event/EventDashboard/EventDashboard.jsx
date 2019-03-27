@@ -255,8 +255,8 @@ class EventDashboard extends Component {
           <Button
             onClick={this.handleFormOpen}
             content="Create Treasure Hunt"
-            style={{ background: "#008577", color: "white" }}
-            floated="right"
+            style={{ background: "#008577", color: "white"}}
+            floated="left"
           />
           {this.state.isOpen && <EventForm updateEvent={this.handleUpdateEvent} selectedEvent={selectedEvent} createEvent={this.handleCreateEvent} handleCancel={this.handleCancel} />}
         </Grid.Column>
