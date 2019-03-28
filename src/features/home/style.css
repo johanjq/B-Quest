@@ -13,7 +13,7 @@ body, html {
       width: 50%;
       height: 350px;
       float: left;
-      background-color: rosybrown;
+      /*background-color: rosybrown;*/
       border-collapse: collapse;
   }
   .rightpane {
@@ -21,7 +21,7 @@ body, html {
     height: 350px;
     position: relative;
     float: right;
-    background-color: yellow;
+    /*background-color: yellow;*/
     border-collapse: collapse;
   }
   
@@ -30,6 +30,6 @@ body, html {
     height: 350px;
     border-collapse: collapse;
     padding-left: 32%;
-    padding-top: 30px;
+    padding-top: 50px;
   }
   

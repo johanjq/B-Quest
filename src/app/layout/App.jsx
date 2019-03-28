@@ -11,37 +11,42 @@ import EventDetailedPage from "../../features/event/EventDetailed/EventDetailedP
 import HomePage from "../../features/home/HomePage";
 import DescriptionPage from "../../features/home/DescriptionPage";
 
-
 class App extends Component {
   render() {
     return (
       //With this adition to the home page route in a different
       //Div, we make sure to display the Home page without the NavBar
       <div>
-        <Switch>
-          <Route exact path='/' component={DescriptionPage}/>
-        </Switch>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/descriptionPage" component={DescriptionPage}/>
+          </Switch>
 
         {/*A Route with forward Slash(/) plus anything else will result on a routing
         looking for a match */}
-        <Route path="/(.+)" render={()=>(
-          <div>
-          <NavBar />
-          <Container className="main">
-            <Switch>
-              <Route path='/events' component={EventDashboard}/>
-              <Route path='/event/:id' component={EventDashboard}/>
-              <Route path='/people' component={EventDetailedPage}/>
-              <Route path='/profile/:id' component={PeopleDashboard}/>
-              <Route path='/events/profile/:id' component={UserDetailedPage}/>
-              <Route path='/settings' component={SettingsDashboard}/>
-              <Route path='/createEvent' component={EventForm}/>
-            </Switch>
-          </Container>
-          </div>      
-        )}/>  
+        <Route
+          path="/(.+)"
+          render={() => (
+            <div>
+              <NavBar />
+              <Container className="main">
+                <Switch>
+                  <Route path="/events" component={EventDashboard} />
+                  <Route path="/event/:id" component={EventDashboard} />
+                  <Route path="/people" component={EventDetailedPage} />
+                  <Route path="/profile/:id" component={PeopleDashboard} />
+                  <Route
+                    path="/events/profile/:id"
+                    component={UserDetailedPage}
+                  />
+                  <Route path="/settings" component={SettingsDashboard} />
+                  <Route path="/createEvent" component={EventForm} />
+                </Switch>
+              </Container>
+            </div>
+          )}
+        />
       </div>
-
     );
   }
 }

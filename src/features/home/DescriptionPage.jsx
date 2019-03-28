@@ -12,13 +12,14 @@ class DescriptionPage extends Component {
           <div className="container">
             <div className="container">
               <div className="toppane">
-                <ReactYoutube videoId="_nBlN9yp9R8"/>
+                <ReactYoutube videoId="Drcq3IxTgTs"/>
               </div>
               <div class="leftpane">
-                <h1>Test Page</h1>
+                <h1>Description About B-Quest</h1>
               </div>
               <div class="rightpane">
-                <h1>Test Page</h1>
+                <h1>Description about Us</h1>
+                <h1>Images</h1>
               </div>
             </div>
           </div>

@@ -14,7 +14,7 @@ const HomePage = ({history}) => {
                     <div className="content">B-Quest</div>
                   </h1>
                   <h2>Create Your Treasure Hunt, Invite Friends and More</h2>
-                  <div onClick={() => history.push('/events')} className="ui huge white inverted button">
+                  <div onClick={() => history.push('/descriptionPage')} className="ui huge white inverted button">
                     Let's Play!
                     <i className="right arrow icon" />
                   </div>
