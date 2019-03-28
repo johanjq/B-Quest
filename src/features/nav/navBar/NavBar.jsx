@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Menu, Container, Button } from "semantic-ui-react";
+import { Menu, Container} from "semantic-ui-react";
 import { NavLink, Link, withRouter } from "react-router-dom";
 import SignedOutMenu from "../Menus/SignedOutMenu";
 import SignedInMenu from "../Menus/SignedInMenu";
@@ -29,7 +29,7 @@ class NavBar extends Component {
         <Container>
           {/*The Home page is always activated due having the NavLink below*/}
           <Menu.Item as={Link} to="/" header>
-            <img src="assets/logo.png" alt="logo" />
+            <img src="/assets/logo.png" alt="logo" />
             B-Quest
           </Menu.Item>
           {authenticated &&
