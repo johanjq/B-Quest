@@ -1,7 +1,7 @@
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from "./testConstants";
 
 const initialState = {
-  data: 40
+  data: 10
 };
 
 const testReducer = (state = initialState, action) => {
