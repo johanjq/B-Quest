@@ -34,6 +34,7 @@ class NavBar extends Component {
           </Menu.Item>
           {authenticated &&
           <Menu.Item as={NavLink} to="/events" name="My Treasure Hunts" />}
+          <Menu.Item as={NavLink} to="/test" name="Test" />
           {authenticated &&
           <Menu.Item as={NavLink} to="/people" name="People" />}
           {/*<Menu.Item><Button as={Link} to='/createEvent' floated="right" positive inverted content="Create Treasure Hunt" /></Menu.Item>*/}

@@ -24,6 +24,34 @@ body, html {
     /*background-color: yellow;*/
     border-collapse: collapse;
   }
+  .rightpane h2{
+    text-align: justify;
+    color: #d2d6d1;
+    margin-right: 20px;
+    margin-bottom: 0px;
+  }
+  .rightpane h3{
+    color: #d2d6d1;
+    margin: 0;
+    text-align: center;
+  }
+  .rightpane h4{
+    margin: 0;
+    color: #d2d6d1;
+    margin: 0px 35px;
+    word-spacing: 65px;
+  }
+  footer{
+    color: #d2d6d1;
+    margin-top: 20px;
+    margin-right: 30px;
+    text-align: right;
+  }
+  .rightpane img{
+    border-radius: 50%;
+    margin: 0px 5px;
+    margin-top: 10px;
+  }
   
   .toppane {
     width: 100%;
