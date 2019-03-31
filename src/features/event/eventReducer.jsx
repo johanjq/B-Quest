@@ -6,7 +6,7 @@ const initialState = [
     id: "1",
     title: "Take a selfie with a stranger in Temple Bar",
     date: "2018-03-27",
-    category: "culture",
+    category: "templebar",
     bigHero: "Robert",
     description:
       "The B-Hero needs to Get into the Temple Bar Pub and take a selfie with a completely stranger! Proof of this quest needs to be uploaded to the Trasure Hunt",
@@ -40,9 +40,9 @@ const initialState = [
   },
   {
     id: "2",
-    title: "Trip to Punch and Judy Pub",
+    title: "Cross the Ha'penny Bridge Jumping",
     date: "2018-03-28",
-    category: "drinks",
+    category: "hapenny",
     bigHero: "Johan",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
@@ -76,9 +76,9 @@ const initialState = [
   },
   {
     id: "3",
-    title: "Do 20 push ups inside a McDonalds",
+    title: "Sing a song in public",
     date: "2018-03-27",
-    category: "sports",
+    category: "music",
     bigHero: "Juan",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
@@ -112,9 +112,9 @@ const initialState = [
   },
   {
     id: "4",
-    title: "Trip to Tower of London",
+    title: "Cross Running the Samuel Beckett Bridge",
     date: "2018-03-27",
-    category: "culture",
+    category: "samuelbeckett",
     bigHero: "Maria Fernanda",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",

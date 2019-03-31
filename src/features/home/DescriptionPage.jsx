@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./style.css";
 import ReactYoutube from "./ReactYoutube";
 import NBDescriptionPage from "./NBDescriptionPage";
+import { Image } from "semantic-ui-react";
+
 
 class DescriptionPage extends Component {
   render() {
@@ -15,7 +17,15 @@ class DescriptionPage extends Component {
                 <ReactYoutube videoId="Drcq3IxTgTs" />
               </div>
               <div class="leftpane">
-                <h1>Description About B-Quest</h1>
+                <h2>
+                  B-Quest is a birthday application where a group of friends can create
+                  an event that involves a group of tasks to complete in order
+                  to win a prize that will be the birthday present. For our
+                  application purposes the prize is always money. In our app the
+                  event is considered a Treasure Hunt, the birthday person is a
+                  hero so it’s called a B- Hero and the birthday present is a
+                  Treasure.
+                </h2>
               </div>
               <div class="rightpane">
                 <h2>
@@ -24,12 +34,44 @@ class DescriptionPage extends Component {
                   more enjoyable.
                 </h2>
                 <h3>We are: </h3>
-                <img src="https://bit.ly/2HDrEkL" alt="Johan" width="100px" height="100px" />
-                <img src="https://bit.ly/2HRMsnN" alt="Ronald" width="100px" height="100px" />
-                <img src="https://bit.ly/2UgsI3J" alt="Ailem" width="100px" height="100px" />
-                <img src="https://bit.ly/2HRLmsb" alt="Juan" width="100px" height="100px" />
-                <img src="https://bit.ly/2HDmTHG" alt="Robert" width="100px" height="100px" />
-                <img src="https://bit.ly/2CKyhOf" alt="Mafer" width="100px" height="100px" />
+                <Image.Group>
+                  <Image
+                    src="/assets/usImages/Johan.jpg"
+                    alt="Johan"
+                    width="100px"
+                    height="100px"
+                  />
+                  <Image
+                    src="/assets/usImages/Ronald.jpg"
+                    alt="Ronald"
+                    width="100px"
+                    height="100px"
+                  />
+                  <Image
+                    src="/assets/usImages/Ailem.jpg"
+                    alt="Ailem"
+                    width="100px"
+                    height="100px"
+                  />
+                  <Image
+                    src="/assets/usImages/Juan.jpg"
+                    alt="Juan"
+                    width="100px"
+                    height="100px"
+                  />
+                  <Image
+                    src="/assets/usImages/Robert.jpg"
+                    alt="Robert"
+                    width="100px"
+                    height="100px"
+                  />
+                  <Image
+                    src="/assets/usImages/Mafer.jpg"
+                    alt="Mafer"
+                    width="100px"
+                    height="100px"
+                  />
+                </Image.Group>
                 <div>
                   <h4>Johan Ronald Ailem Juan Robert Mafer</h4>
                 </div>
