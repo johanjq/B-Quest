@@ -1,53 +1,60 @@
 import React, { Component } from "react";
-import { Segment, Form, Button, Dropdown, Menu } from "semantic-ui-react";
+import { connect } from 'react-redux';
+import cuid from 'cuid';
+import { Segment, Form, Button} from "semantic-ui-react";
+import { createEvent, updateEvent } from '../eventActions'
 
-const options = [
-  { key: 1, text: "5 euro", value: 1 },
-  { key: 2, text: "10 euro", value: 2 },
-  { key: 3, text: "15 euro", value: 3 }
-];
 
-const emptyEvent = {
-  title: "",
-  date: "",
-  city: "",
-  venue: "",
-  hostedBy: "",
-  contribution: ""
-};
+const mapState = (state, ownProps) => {
+  const eventId = ownProps.match.params.id;
+          
+  let event = {
+    title: "",
+    date: "",
+    city: "",
+    venue: "",
+    hostedBy: "",
+    contribution: ""
+  }
+
+  if(eventId && state.events.length > 0){
+    event = state.events.filter(event => event.id === eventId)[0];
+
+  }
+  return {
+    event
+  }
+}
+
+const actions = {
+  createEvent,
+  updateEvent
+}
+
 
 class EventForm extends Component {
   state = {
-    event: emptyEvent
+    event: Object.assign({}, this.props.event)
   };
 
-  componentDidMount() {
-    if (this.props.selectedEvent !== null) {
-      this.setState({
-        event: this.props.selectedEvent
-      });
-    }
-  }
-  //Each time we click on this, we get access to the next props
-  //or the previous props
-  //So the form will update to whatever we're selecting
-  componentWillReceiveProps(nextProps) {
-    //console.log('current', this.props.selectedEvent);
-    //console.log('next', nextProps.selectedEvent);
-    if (nextProps.selectedEvent !== this.props.selectedEvent) {
-      this.setState({
-        event: nextProps.selectedEvent || emptyEvent
-      });
-    }
-  }
+
   //When we click view on each TH,
-  //We're going to be able to edit the event and change its fields
+  //We're going to be able to see the event with more details
   onFormSubmit = evt => {
     evt.preventDefault();
     if (this.state.event.id) {
       this.props.updateEvent(this.state.event);
+      this.props.history.goBack();
     } else {
-      this.props.createEvent(this.state.event);
+      const newEvent = {
+        ...this.state.event,
+        id: cuid(),
+        hostPhotoURL: '/assets/user.png'
+      }
+
+      this.props.createEvent(newEvent);
+      this.props.history.push('/events')
+    
     }
   };
 
@@ -68,7 +75,7 @@ class EventForm extends Component {
           <Form.Field>
             <label>Treasure Hunt Title</label>
             <input
-              name="title"
+              name='title'
               onChange={this.onInputChange}
               value={event.title}
               placeholder="Treasure Hunt Title"
@@ -77,17 +84,17 @@ class EventForm extends Component {
           <Form.Field>
             <label>Treasure Hunt Date</label>
             <input
-              name="date"
+              name='date'
               onChange={this.onInputChange}
               value={event.date}
-              type="date"
+              type='date'
               placeholder="Treasure Hunt Date"
             />
           </Form.Field>
           <Form.Field>
             <label>City</label>
             <input
-              name="city"
+              name='city'
               onChange={this.onInputChange}
               value={event.city}
               placeholder="City TH is taking place"
@@ -127,7 +134,7 @@ class EventForm extends Component {
           >
             Submit
           </Button>
-          <Button onClick={handleCancel} type="button">
+          <Button onClick={this.props.history.goBack} type="button">
             Cancel
           </Button>
         </Form>
@@ -135,4 +142,4 @@ class EventForm extends Component {
     );
   }
 }
-export default EventForm;
+export default  connect(mapState, actions)(EventForm);

@@ -148,9 +148,9 @@ const initialState = [
   },
   {
     id: "5",
-    title: "Get a free hug in the shopping center",
+    title: "Get a hug in the shopping center",
     date: "2018-03-27",
-    category: "culture",
+    category: "shoppingcenter",
     bigHero: "Ronald",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
