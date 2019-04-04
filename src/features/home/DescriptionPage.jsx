@@ -16,7 +16,7 @@ class DescriptionPage extends Component {
               <div className="toppane">
                 <ReactYoutube videoId="Drcq3IxTgTs" />
               </div>
-              <div class="leftpane">
+              <div className="leftpane">
                 <h2>
                   B-Quest is a birthday application where a group of friends can create
                   an event that involves a group of tasks to complete in order
@@ -27,7 +27,7 @@ class DescriptionPage extends Component {
                   Treasure.
                 </h2>
               </div>
-              <div class="rightpane">
+              <div className="rightpane">
                 <h2>
                   Hi there and welcome to B-Quest Web Application. We're a group
                   of students that creates software to make people's bithdays

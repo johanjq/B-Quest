@@ -61,7 +61,8 @@ const validate = combineValidators({
     })
   )(),
   city: isRequired("city"),
-  venue: isRequired("venue")
+  venue: isRequired("venue"),
+  date: isRequired('date')
 });
 
 class EventForm extends Component {
@@ -130,7 +131,7 @@ class EventForm extends Component {
                 name="date"
                 type="text"
                 component={DateInput}
-                dateFormat="dd/MM/yyyy HH:mm"
+                dateFormat="yyyy-MM-dd HH:mm"
                 timeFormat='HH:mm'
                 showTimeSelect
                 placeholder="Date and Time of Treasure H"
