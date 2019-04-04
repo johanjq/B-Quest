@@ -30,6 +30,16 @@ const EventDetailedInfo = ({event}) => {
       <Segment attached>
         <Grid verticalAlign="middle">
           <Grid.Column width={1}>
+            <Icon name="euro" size="large" color="teal" />
+          </Grid.Column>
+          <Grid.Column width={15}>
+            <span>{event.contribution}€: Contribution for this TH</span>
+          </Grid.Column>
+        </Grid>
+      </Segment>
+      <Segment attached>
+        <Grid verticalAlign="middle">
+          <Grid.Column width={1}>
             <Icon name="calendar" size="large" color="teal" />
           </Grid.Column>
           <Grid.Column width={15}>

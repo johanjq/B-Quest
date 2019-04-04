@@ -40,7 +40,7 @@ class EventListItem extends Component {
               <span>Big Lord: {event.hostedBy}</span>
             </Segment>
             <Segment>
-              <span>{event.contribution}</span>
+              <span>Contribution: {event.contribution}€</span>
             </Segment>
             <span>{event.description}</span>
             <div style={{ margin: "10px 0px" }}>

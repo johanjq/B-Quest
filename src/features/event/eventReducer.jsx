@@ -13,7 +13,7 @@ const initialState = [
     city: "London, UK",
     venue: "47-48 Temple Bar, Dublin, D02 N725",
     hostedBy: "Johan",
-    contribution: "Contribution: 20$",
+    contribution: "20",
     hostPhotoURL: "https://bit.ly/2HDmTHG",
     attendees: [
       {
@@ -49,7 +49,7 @@ const initialState = [
     city: "London, UK",
     venue: "Punch & Judy, Henrietta Street, London, UK",
     hostedBy: "Juan",
-    contribution: "Contribution: 20$",
+    contribution: "5",
     hostPhotoURL: "https://bit.ly/2HDrEkL",
     attendees: [
       {
@@ -85,7 +85,7 @@ const initialState = [
     city: "London, UK",
     venue: "McDonalds Dublin",
     hostedBy: "Ronald",
-    contribution: "Contribution: 20$",
+    contribution: "10",
     hostPhotoURL: "https://bit.ly/2HRLmsb",
     attendees: [
       {
@@ -121,7 +121,7 @@ const initialState = [
     city: "London, UK",
     venue: "Tower of London, St Katharine's & Wapping, London",
     hostedBy: "Juan",
-    contribution: "Contribution: 20$",
+    contribution: "25",
     hostPhotoURL: "https://bit.ly/2CKyhOf",
     attendees: [
       {
@@ -157,7 +157,7 @@ const initialState = [
     city: "London, UK",
     venue: "Tower of London, St Katharine's & Wapping, London",
     hostedBy: "Ailem",
-    contribution: "Contribution: 20$",
+    contribution: "15",
     hostPhotoURL: "https://bit.ly/2HRMsnN",
     attendees: [
       {

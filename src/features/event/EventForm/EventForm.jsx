@@ -1,145 +1,172 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
-import cuid from 'cuid';
-import { Segment, Form, Button} from "semantic-ui-react";
-import { createEvent, updateEvent } from '../eventActions'
-
+import { connect } from "react-redux";
+import { reduxForm, Field } from "redux-form";
+import {
+  composeValidators,
+  combineValidators,
+  isRequired,
+  hasLengthGreaterThan
+} from "revalidate";
+import moment from 'moment';
+import cuid from "cuid";
+import { Segment, Form, Button, Grid, Header } from "semantic-ui-react";
+import { createEvent, updateEvent } from "../eventActions";
+import TextInput from "../../../app/common/form/TextInput";
+import TextArea from "../../../app/common/form/TextArea";
+import SelectInput from "../../../app/common/form/SelectInput";
+import DateInput from "../../../app/common/form/DateInput";
 
 const mapState = (state, ownProps) => {
   const eventId = ownProps.match.params.id;
-          
-  let event = {
-    title: "",
-    date: "",
-    city: "",
-    venue: "",
-    hostedBy: "",
-    contribution: ""
-  }
 
-  if(eventId && state.events.length > 0){
+  let event = {};
+
+  if (eventId && state.events.length > 0) {
     event = state.events.filter(event => event.id === eventId)[0];
-
   }
   return {
-    event
-  }
-}
+    initialValues: event
+  };
+};
 
 const actions = {
   createEvent,
   updateEvent
-}
+};
 
+const category = [
+  { key: "templebar", text: "Temple Bar", value: "templebar" },
+  { key: "running", text: "Running", value: "running" },
+  { key: "exercise", text: "Exercise", value: "exercise" },
+  { key: "singing", text: "Singing", value: "singing" },
+  { key: "drink", text: "Drink", value: "drink" },
+  { key: "travel", text: "Travel", value: "travel" }
+];
+const categoryContribution = [
+  { key: "5", text: "5", value: "5" },
+  { key: "10", text: "10", value: "10" },
+  { key: "15", text: "15", value: "15" },
+  { key: "20", text: "20", value: "20" },
+  { key: "25", text: "25", value: "25" },
+  { key: "30", text: "30", value: "30" }
+];
+
+const validate = combineValidators({
+  title: isRequired({ message: "The TH title is required" }),
+  category: isRequired({ message: "Please provide a category" }),
+  description: composeValidators(
+    isRequired({ message: "Please enter a description" }),
+    hasLengthGreaterThan(4)({
+      message: "Description needs to be at least 5 characters."
+    })
+  )(),
+  city: isRequired("city"),
+  venue: isRequired("venue")
+});
 
 class EventForm extends Component {
-  state = {
-    event: Object.assign({}, this.props.event)
-  };
-
-
   //When we click view on each TH,
   //We're going to be able to see the event with more details
-  onFormSubmit = evt => {
-    evt.preventDefault();
-    if (this.state.event.id) {
-      this.props.updateEvent(this.state.event);
+  onFormSubmit = values => {
+    values.date = moment(values.date).format()
+    if (this.props.initialValues.id) {
+      this.props.updateEvent(values);
       this.props.history.goBack();
     } else {
       const newEvent = {
-        ...this.state.event,
+        ...values,
         id: cuid(),
-        hostPhotoURL: '/assets/user.png'
-      }
+        hostPhotoURL: "/assets/user.png",
+        bigHero: "Ailem"
+      };
 
       this.props.createEvent(newEvent);
-      this.props.history.push('/events')
-    
+      this.props.history.push("/events");
     }
   };
 
-  onInputChange = evt => {
-    const newEvent = this.state.event;
-    newEvent[evt.target.name] = evt.target.value;
-    this.setState({
-      event: newEvent
-    });
-  };
-
   render() {
-    const { handleCancel } = this.props;
-    const { event } = this.state;
+    const { invalid, submitting, pristine } = this.props;
     return (
-      <Segment style={{ margin: "50px 0px" }}>
-        <Form onSubmit={this.onFormSubmit}>
-          <Form.Field>
-            <label>Treasure Hunt Title</label>
-            <input
-              name='title'
-              onChange={this.onInputChange}
-              value={event.title}
-              placeholder="Treasure Hunt Title"
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>Treasure Hunt Date</label>
-            <input
-              name='date'
-              onChange={this.onInputChange}
-              value={event.date}
-              type='date'
-              placeholder="Treasure Hunt Date"
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>City</label>
-            <input
-              name='city'
-              onChange={this.onInputChange}
-              value={event.city}
-              placeholder="City TH is taking place"
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>Venue</label>
-            <input
-              name="venue"
-              onChange={this.onInputChange}
-              value={event.venue}
-              placeholder="Enter the Venue of the TH"
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>Hosted By</label>
-            <input
-              name="hostedBy"
-              onChange={this.onInputChange}
-              value={event.hostedBy}
-              placeholder="Enter the name of the Big Lord"
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>Contribution: </label>
-            <input
-              name="contribution"
-              onChange={this.onInputChange}
-              value={event.contribution}
-              placeholder="How much will you contribute?"
-            />
-          </Form.Field>
-          <Button
-            positive
-            style={{ background: "#008577", color: "white" }}
-            type="submit"
-          >
-            Submit
-          </Button>
-          <Button onClick={this.props.history.goBack} type="button">
-            Cancel
-          </Button>
-        </Form>
-      </Segment>
+      <Grid>
+        <Grid.Column width={10}>
+          <Segment style={{ margin: "50px 0px" }}>
+            <Header sub color="teal" content="Treasure Hunt Details" />
+            <Form onSubmit={this.props.handleSubmit(this.onFormSubmit)}>
+              <Field
+                name="title"
+                type="text"
+                component={TextInput}
+                placeholder="TH Name"
+              />
+              <Field
+                name="category"
+                type="text"
+                component={SelectInput}
+                options={category}
+                placeholder="What is your TH About?"
+              />
+              <Field
+                name="description"
+                type="text"
+                rows={3}
+                component={TextArea}
+                placeholder="Tell us About your TH"
+              />
+              <Header sub color="teal" content="Treasure Hunt Location" />
+              <Field
+                name="city"
+                type="text"
+                component={TextInput}
+                placeholder="TH City"
+              />
+              <Field
+                name="venue"
+                type="text"
+                component={TextInput}
+                placeholder="TH Venue"
+              />
+              <Field
+                name="date"
+                type="text"
+                component={DateInput}
+                dateFormat="dd/MM/yyyy HH:mm"
+                timeFormat='HH:mm'
+                showTimeSelect
+                placeholder="Date and Time of Treasure H"
+              />
+              <Header sub color="teal" content="Contribution (Euro)" />
+              <Field
+                name="contribution"
+                type="text"
+                component={SelectInput}
+                options={categoryContribution}
+                placeholder="TH Contribution in €"
+              />
+              <Button
+                //Button is disabled unless we fill up the form
+                disabled={invalid || submitting || pristine}
+                positive
+                style={{ background: "#008577", color: "white" }}
+                type="submit"
+              >
+                Submit
+              </Button>
+              <Button onClick={this.props.history.goBack} type="button">
+                Cancel
+              </Button>
+            </Form>
+          </Segment>
+        </Grid.Column>
+      </Grid>
     );
   }
 }
-export default  connect(mapState, actions)(EventForm);
+export default connect(
+  mapState,
+  actions
+)(
+  reduxForm({ form: "eventForm", enableReinitialize: true, validate })(
+    EventForm
+  )
+);

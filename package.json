@@ -4,7 +4,11 @@
   "private": true,
   "dependencies": {
     "cuid": "^2.1.6",
+    "date-fns": "^1.29.0",
+    "form": "^0.2.4",
+    "moment": "^2.22.0",
     "react": "^16.8.4",
+    "react-datepicker": "^1.4.1",
     "react-dom": "^16.8.4",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
@@ -12,6 +16,8 @@
     "react-youtube": "^7.9.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
+    "redux-form": "^8.1.0",
+    "revalidate": "^1.2.0",
     "semantic-ui-react": "^0.86.0"
   },
   "scripts": {
