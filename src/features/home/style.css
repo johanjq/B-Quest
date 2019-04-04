@@ -11,26 +11,32 @@ body, html {
   
   .leftpane {
       width: 50%;
-      height: 350px;
+      height: 330px;
       float: left;
       /*background-color: rosybrown;*/
       border-collapse: collapse;
+      border-right-style: solid;
+      border-right-color: #d2d6d1;
+  }
+  .leftpane h1{
+    color: #d2d6d1;
+    text-align: center;
+    
   }
   .leftpane h2{
     text-align: justify;
     color: #d2d6d1;
     margin: 0px 20px;
-    border-right-style: solid;
-    border-right-color: #d2d6d1;
-    padding-right: 20px;
+    padding-right: 10px;
   }
   .rightpane {
     width: 50%;
-    height: 350px;
+    height: 330px;
     position: relative;
     float: right;
     /*background-color: yellow;*/
     border-collapse: collapse;
+    padding-left: 20px;
   }
   .rightpane h2{
     text-align: justify;

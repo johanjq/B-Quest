@@ -17,6 +17,7 @@ class DescriptionPage extends Component {
                 <ReactYoutube videoId="Drcq3IxTgTs" />
               </div>
               <div className="leftpane">
+                <h1>B-Quest</h1>
                 <h2>
                   B-Quest is a birthday application where a group of friends can create
                   an event that involves a group of tasks to complete in order
