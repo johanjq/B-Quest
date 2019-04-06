@@ -11,7 +11,7 @@ const DateInput = ({input: {value, onChange, ...restInput}, width, placeholder, 
             {...rest}
             placeholderText={placeholder}
             //Had to change the field moment to new Date to fix date issue
-            selected={value ? new Date(value) : null}
+            selected={value ? moment(value) : null}
             onChange={onChange}
             {...restInput}
             />
