@@ -10,8 +10,12 @@ const initialState = [
     bigHero: "Robert",
     description:
       "The B-Hero needs to Get into the Temple Bar Pub and take a selfie with a completely stranger! Proof of this quest needs to be uploaded to the Trasure Hunt",
-    city: "London, UK",
+    city: "Dublin, Ireland",
     venue: "47-48 Temple Bar, Dublin, D02 N725",
+    venueLatLng: {
+      lat: 53.345648,
+      lng: -6.264204
+    },
     hostedBy: "Johan",
     contribution: "20",
     hostPhotoURL: "https://bit.ly/2HDmTHG",
@@ -46,8 +50,12 @@ const initialState = [
     bigHero: "Johan",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
-    city: "London, UK",
-    venue: "Punch & Judy, Henrietta Street, London, UK",
+    city: "Dublin, Ireland",
+    venue: "Ha'penny Bridge, Bachelors Walk, North City, Dublin",
+    venueLatLng: {
+      lat: 53.346496,
+      lng: -6.263109
+    },
     hostedBy: "Juan",
     contribution: "5",
     hostPhotoURL: "https://bit.ly/2HDrEkL",
@@ -82,8 +90,12 @@ const initialState = [
     bigHero: "Juan",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
-    city: "London, UK",
-    venue: "McDonalds Dublin",
+    city: "Dublin, Ireland",
+    venue: "Porterhouse Temple Bar, Parliament Street, Temple Bar, Dublin 2",
+    venueLatLng: {
+      lat: 53.345241,
+      lng: -6.267440
+    },
     hostedBy: "Ronald",
     contribution: "10",
     hostPhotoURL: "https://bit.ly/2HRLmsb",
@@ -118,8 +130,12 @@ const initialState = [
     bigHero: "Maria Fernanda",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
-    city: "London, UK",
-    venue: "Tower of London, St Katharine's & Wapping, London",
+    city: "Dublin, Ireland",
+    venue: "Samuel Beckett Bridge, Dublin",
+    venueLatLng: {
+      lat: 53.347115,
+      lng: -6.241371
+    },
     hostedBy: "Juan",
     contribution: "25",
     hostPhotoURL: "https://bit.ly/2CKyhOf",
@@ -154,8 +170,12 @@ const initialState = [
     bigHero: "Ronald",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
-    city: "London, UK",
-    venue: "Tower of London, St Katharine's & Wapping, London",
+    city: "Dublin, Ireland",
+    venue: "Dundrum Shopping Centre, Dundrum Road, Dundrum, Dublin",
+    venueLatLng: {
+      lat: 53.289107,
+      lng: -6.243293
+    },
     hostedBy: "Ailem",
     contribution: "15",
     hostPhotoURL: "https://bit.ly/2HRMsnN",

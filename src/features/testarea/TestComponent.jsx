@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import {Button} from 'semantic-ui-react';
+import GoogleMapReact from 'google-map-react'
+import {Button, Icon } from 'semantic-ui-react';
 import Script from 'react-load-script';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 import { incrementCounter, decrementCounter } from './TestActions'
@@ -14,7 +15,17 @@ const actions = {
     decrementCounter
 }
 
+const Marker = () => <Icon name='marker' size='big' color='red'/>
+
 class TestComponent extends Component {
+
+  static defaultProps = {
+    center: {
+      lat: 53.35,
+      lng: -6.26
+    },
+    zoom: 11
+  };
 
   state = {
     address: '',
@@ -45,10 +56,10 @@ class TestComponent extends Component {
     return (
       <div>
 
-        <Script
+        {/* <Script
           url='https://maps.googleapis.com/maps/api/js?key=AIzaSyA8iT1dX7WDRLyHeTlFwRT8EfJs4ShZDrQ&libraries=places'
           onLoad={this.handleScriptLoad}
-        />
+        />*/}
         <h1>Test Area</h1>
         <h3>The answer is: {this.props.data}</h3>
         <Button onClick={incrementCounter} color="green" content="Increment" />
@@ -60,6 +71,20 @@ class TestComponent extends Component {
         <PlacesAutocomplete inputProps={inputProps} />}
         <button type="submit">Submit</button>
         </form>
+
+        <div style={{ height: '300px', width: '100%' }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: 'AIzaSyA8iT1dX7WDRLyHeTlFwRT8EfJs4ShZDrQ' }}
+          defaultCenter={this.props.center}
+          defaultZoom={this.props.zoom}
+        >
+          <Marker
+            lat={53.350140}
+            lng={-6.266155}
+            text="My Marker"
+          />
+        </GoogleMapReact>
+      </div>
       
       </div>
     )
