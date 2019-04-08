@@ -11,6 +11,8 @@ import EventDetailedPage from "../../features/event/EventDetailed/EventDetailedP
 import HomePage from "../../features/home/HomePage";
 import DescriptionPage from "../../features/home/DescriptionPage";
 import TestComponent from "../../features/testarea/TestComponent";
+import ModalManager from '../../features/modals/ModalManager'
+
 
 class App extends Component {
   render() {
@@ -18,6 +20,7 @@ class App extends Component {
       //With this adition to the home page route in a different
       //Div, we make sure to display the Home page without the NavBar
       <div>
+        <ModalManager/>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/descriptionPage" component={DescriptionPage}/>

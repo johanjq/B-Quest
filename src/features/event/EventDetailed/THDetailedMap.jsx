@@ -11,7 +11,7 @@ const THDetailedMap = ({ lat, lng }) => {
     <Segment attached="bottom" style={{padding: 0}} >
       <div style={{ height: "300px", width: "100%" }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyA8iT1dX7WDRLyHeTlFwRT8EfJs4ShZDrQ" }}
+          bootstrapURLKeys={{ key: "AIzaSyAJ2SBrRr6J1Cm_ic9v0QBEtqHsBQKaikg" }}
           defaultCenter={center}
           defaultZoom={zoom}
         >

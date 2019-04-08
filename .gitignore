@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/src/app/common/form/PlaceInput.jsx
+src\app\common\form\PlaceInput.jsx
+/src/features/event/EventDetailed/THDetailedMap.jsx
+src\features\event\EventDetailed\THDetailedMap.jsx
+
