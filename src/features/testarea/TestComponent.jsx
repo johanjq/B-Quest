@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Button } from "semantic-ui-react";
-import { Script } from "react-load-script";
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng
-} from "react-places-autocomplete";
+//import { Script } from "react-load-script";
+import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import { incrementAsync, decrementAsync } from "./TestActions";
 import { openModal } from "../modals/modalActions";
 
@@ -50,17 +47,29 @@ class TestComponent extends Component {
   onChange = address => this.setState({ address });
 
   render() {
-    const inputProps = {
-      value: this.state.address,
-      onChange: this.onChange
-    };
-    const { incrementAsync, decrementAsync, data, openModal, loading} = this.props;
+    const {
+      incrementAsync,
+      decrementAsync,
+      data,
+      openModal,
+      loading
+    } = this.props;
     return (
       <div>
         <h1>Test Area</h1>
         <h3>The answer is: {data}</h3>
-        <Button loading={loading} onClick={incrementAsync} color="green" content="Increment" />
-        <Button loading={loading} onClick={decrementAsync} color="red" content="Decrement" />
+        <Button
+          loading={loading}
+          onClick={incrementAsync}
+          color="green"
+          content="Increment"
+        />
+        <Button
+          loading={loading}
+          onClick={decrementAsync}
+          color="red"
+          content="Decrement"
+        />
         <Button
           onClick={() => openModal("TestModal", { data: 43 })}
           color="teal"
@@ -68,12 +77,6 @@ class TestComponent extends Component {
         />
         <br />
         <br />
-        <form onSubmit={this.handleFormSubmit}>
-          {this.state.scriptLoaded && (
-            <PlacesAutocomplete inputProps={inputProps} />
-          )}
-          <button type="submit">Submit</button>
-        </form>
 
         <div style={{ height: "300px", width: "100%" }} />
       </div>

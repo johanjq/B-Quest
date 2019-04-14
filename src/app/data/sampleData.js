@@ -3,7 +3,7 @@ const sampleData = {
     {
       id: "1",
       title: "Take a selfie with a stranger in Temple Bar",
-      date: "2018-03-27",
+      date: "2018-03-27T18:00:00",
       category: "templebar",
       bigHero: "Robert",
       description:
@@ -43,7 +43,7 @@ const sampleData = {
     {
       id: "2",
       title: "Cross the Ha'penny Bridge Jumping",
-      date: "2018-03-28",
+      date: "2018-03-28T18:00:00",
       category: "hapenny",
       bigHero: "Johan",
       description:
@@ -83,7 +83,7 @@ const sampleData = {
     {
       id: "3",
       title: "Sing a song in public",
-      date: "2018-03-27",
+      date: "2018-03-27T18:00:00",
       category: "music",
       bigHero: "Juan",
       description:
@@ -123,7 +123,7 @@ const sampleData = {
     {
       id: "4",
       title: "Cross Running the Samuel Beckett Bridge",
-      date: "2018-03-27",
+      date: "2018-03-27T18:00:00",
       category: "samuelbeckett",
       bigHero: "Maria Fernanda",
       description:
@@ -163,7 +163,7 @@ const sampleData = {
     {
       id: "5",
       title: "Get a hug in the shopping center",
-      date: "2018-03-27",
+      date: "2018-03-27T18:00:00",
       category: "shoppingcenter",
       bigHero: "Ronald",
       description:

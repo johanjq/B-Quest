@@ -1,21 +1,41 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux'
 import { Segment, Grid, Icon, Button } from "semantic-ui-react";
-import THDetailedMap from './THDetailedMap' 
+import THDetailedMap from './THDetailedMap'
+import { openModal } from '../../modals/modalActions'
+import format from "date-fns/format";
+
+const actions = {
+  openModal
+}
 
 
 class EventDetailedInfo extends Component {
 
   state = {
     showMap: false
+  };
+
+  componentWillUnmount() {
+    this.setState({
+      showMap: false
+    })
   }
+
   showMapToggle = () => {
     this.setState(prevState => ({
       showMap: !prevState.showMap
     }))
   }
 
+  handleShare = () => {
+    this.props.openModal('ShareTH')
+  }
+
+  
+
   render() {
-    const {event} = this.props;
+    const {event, openModal} = this.props;
     return (
       <Segment.Group>
         <Segment attached="top">
@@ -27,7 +47,7 @@ class EventDetailedInfo extends Component {
               <span>Share this Treasure Hunt</span>
             </Grid.Column>
             <Grid.Column width={4}>
-              <Button color="teal" size="tiny" content="Share TH" />
+              <Button onClick={() => openModal('ShareModal', {data: 43})} color="teal" size="tiny" content="Share TH" />
             </Grid.Column>
           </Grid>
         </Segment>
@@ -57,7 +77,7 @@ class EventDetailedInfo extends Component {
               <Icon name="calendar" size="large" color="teal" />
             </Grid.Column>
             <Grid.Column width={15}>
-              <span>{event.date}</span>
+              <span>{format(event.date, 'dddd Do MMM')} at {format(event.date, 'h:mm A')}</span>
             </Grid.Column>
           </Grid>
         </Segment>
@@ -81,4 +101,4 @@ class EventDetailedInfo extends Component {
   }
 }
 
-export default EventDetailedInfo;
+export default connect(null, actions)(EventDetailedInfo);

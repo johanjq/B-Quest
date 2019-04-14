@@ -1,20 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { Form, Segment, Button, Label } from 'semantic-ui-react';
+import { Form, Segment, Button } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import TextInput from '../../../app/common/form/TextInput';
-import { login } from '../authActions'
 
-const actions = {
-  login
-}
-
-
-//Because we're using reduxForm, we also have access to
-//the handle submit which is part of the props
-const LoginForm = ({login, handleSubmit, error}) => {
+const EventDetailedShare = () => {
   return (
-    <Form size="large" onSubmit={handleSubmit(login)}>
+    <Form error size="large">
       <Segment>
         <Field
           name="email"
@@ -28,7 +19,6 @@ const LoginForm = ({login, handleSubmit, error}) => {
           type="password"
           placeholder="password"
         />
-        {error && <Label basic color='red'>{error}</Label>}
         <Button fluid size="large" color="teal">
           Login
         </Button>
@@ -37,4 +27,4 @@ const LoginForm = ({login, handleSubmit, error}) => {
   );
 };
 
-export default connect(null, actions)(reduxForm({form: 'loginForm'})(LoginForm));
+export default reduxForm({form: 'ShareTH'})(EventDetailedShare);

@@ -3,12 +3,14 @@ import { connect } from 'react-redux'
 import TestModal from './TestModal'
 import LoginModal from './LoginModal'
 import RegisterModal from './RegisterModal'
+import ShareModal from './ShareModal'
 
 //Only contains one modal
 const modalLookup = {
     TestModal,
     LoginModal,
-    RegisterModal
+    RegisterModal,
+    ShareModal
 }
 
 const mapState = (state) => ({
