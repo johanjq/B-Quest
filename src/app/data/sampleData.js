@@ -115,7 +115,7 @@ const sampleData = {
         },
         {
           id: "d",
-          name: "Maria",
+          name: "Robert",
           photoURL: "https://bit.ly/2HDmTHG"
         }
       ]
