@@ -12,6 +12,8 @@ import ScrollToTop from "../src/app/common/util/ScrollToTop";
 
 const store = configureStore();
 
+let render = () => {
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
@@ -27,6 +29,11 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+
+};
+store.firebaseAuthIsReady.then(() => {
+  render();
+})
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
