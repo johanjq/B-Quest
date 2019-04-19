@@ -7,6 +7,7 @@ import EventDetailedHeader from './EventDetailedHeader';
 import EventDetailedChat from './EventDetailedChat'
 import EventDetailedInfo from './EventDetailedInfo'
 import EventDetailedSidebar from './EventDetailedSidebar'
+import EventDetailedPhoto from './EventDetailedPhoto'
 import { objectToArray } from '../../../app/common/util/helpers'
 
 
@@ -42,6 +43,7 @@ class EventDatailedPage extends Component{
       <Grid.Column width={10}>
         <EventDetailedHeader event={event}/>
         <EventDetailedInfo event={event}/>
+        <EventDetailedPhoto/>
         <EventDetailedChat/>
       </Grid.Column>
       <Grid.Column width={6}>
