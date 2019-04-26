@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Segment, Item, Icon, Button, List } from "semantic-ui-react";
+import { Segment, Item, Icon, Button, List, Label } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import format from "date-fns/format";
 import EventListAttendee from "./EventListAttendee";
@@ -18,6 +18,8 @@ class EventListItem extends Component {
                 <Item.Description>
                   <p>B-Hero: {event.bigHero}</p>
                 </Item.Description>
+                {event.cancelled && 
+                <Label style={{top: '-20px'}} ribbon='right' color='red' content='This Treasure Hunt has been cancelled' />}
               </Item.Content>
             </Item>
           </Item.Group>

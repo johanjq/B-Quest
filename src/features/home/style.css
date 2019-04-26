@@ -9,34 +9,14 @@ body, html {
     height: 100%;
   }
   
-  .leftpane {
-      width: 50%;
-      height: 330px;
-      float: left;
-      /*background-color: rosybrown;*/
-      border-collapse: collapse;
-      border-right-style: solid;
-      border-right-color: #d2d6d1;
-  }
-  .leftpane h1{
-    color: #d2d6d1;
-    text-align: center;
-    
-  }
-  .leftpane h2{
-    text-align: justify;
-    color: #d2d6d1;
-    margin: 0px 20px;
-    padding-right: 10px;
-  }
   .rightpane {
-    width: 50%;
+    width: 70%;
     height: 330px;
     position: relative;
-    float: right;
+    margin: 0 auto;
     /*background-color: yellow;*/
     border-collapse: collapse;
-    padding-left: 20px;
+    padding-left: 30px;
   }
   .rightpane h2{
     text-align: justify;
@@ -54,7 +34,7 @@ body, html {
     margin: 0;
     color: #d2d6d1;
     margin: 0px 35px;
-    word-spacing: 62px;
+    word-spacing: 6.4em;
   }
   footer{
     color: #d2d6d1;
@@ -64,7 +44,7 @@ body, html {
   }
   .rightpane img{
     border-radius: 50%;
-    margin: 0px 5px;
+    margin: 0px auto;
     margin-top: 10px;
   }
   
