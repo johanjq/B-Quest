@@ -27,3 +27,4 @@ src\app\common\form\PlaceInput.jsx
 /src/features/event/EventDetailed/THDetailedMap.jsx
 src\features\event\EventDetailed\THDetailedMap.jsx
 
+functions/node_modules/**
