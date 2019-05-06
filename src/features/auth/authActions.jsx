@@ -1,6 +1,9 @@
 import { SubmissionError, reset } from "redux-form";
 import { closeModal } from "../modals/modalActions";
 import { toastr } from 'react-redux-toastr'
+
+//Authentication with username and password
+//This verifies the credentials of the user to enter the system
 export const login = creds => {
   return async (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
@@ -18,6 +21,8 @@ export const login = creds => {
   };
 };
 
+//This method is for Social Media Authentication,
+//In order to enter the system, social media credentials has to be verified
 export const socialLogin = (selectedProvider) =>
   async (dispatch, getState, {getFirebase, getFirestore}) => {
     const firebase = getFirebase();
@@ -42,6 +47,8 @@ export const socialLogin = (selectedProvider) =>
   }
 
 
+//This method is to register new users and store them in the database
+//Username, Email and Password are required to perform this action
 export const registerUser = user => async (
   dispatch,
   getState,
@@ -73,6 +80,10 @@ export const registerUser = user => async (
       });
   }
 };
+
+//The user is allowed to change their password
+//Only if the account is created in B-Quest system
+//Social Media accounts can only be  modified in the official site
 
 export const updatePassword = (creds) => 
 async (dispatch, getState, {getFirebase}) => {
